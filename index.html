@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>موقع ترحيب</title>
+<style>
+body {
+background-color: #282c34; /* خلفية داكنة */
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+
+.welcome-text {
+font-size: 3em;
+color: white;
+padding: 20px;
+border: 2px solid transparent; /* تصغير حجم الـ border إلى 3px */
+border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+border-image-slice: 1;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+transition: box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.welcome-text.clicked {
+box-shadow: 0 0 30px rgba(0, 255, 0, 0.8); /* تغيير لون الظل عند الضغط */
+}
+</style>
+</head>
+<body>
+<div class="welcome-text" id="welcomeText">مرحباً</div>
+
+<script>
+const welcomeText = document.getElementById('welcomeText');
+
+welcomeText.addEventListener('click', () => {
+if (welcomeText.textContent === 'مرحباً') {
+welcomeText.textContent = 'كيف حالك؟';
+welcomeText.classList.add('clicked');
+} else {
+welcomeText.textContent = 'مرحباً';
+welcomeText.classList.remove('clicked');
+}
+});
+</script>
+</body>
+</html>
